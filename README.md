@@ -27,7 +27,7 @@ You need to provide instructions on buildin and running your code.
 Autor: Leonardo Tada
 
 Simple crawler function that walk to all pages in the same domain and
-search for assets useds. Return JSON string.
+search for assets useds. Return JSON string. This version has a default timeout of 5 minutes to not remain running indefinitely.
 
 This repository contains a webservice version of the crawler made by me at:
 https://github.com/leotada/gecko-web-crawler
