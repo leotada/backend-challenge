@@ -1,3 +1,5 @@
+import re
+
 from sanic import Sanic
 from sanic.response import json
 from sanic.response import HTTPResponse
@@ -13,6 +15,12 @@ async def crawler(request, url: str) -> HTTPResponse:
     Endpoint to run crawler to a url parameter determined.
     Return JSON with result.
     """
+    if re.search(r'([\w-]+\.)+(\w+)', url) is None:
+        return json({'message': 'This is not a valid url'})
+
+    if not url.startswith('https://') or not url.startswith('http://'):
+        url = 'https://' + url
+
     if url.endswith('/'):
         url = url[:len(url)-1]
 
