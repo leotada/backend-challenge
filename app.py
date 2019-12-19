@@ -15,6 +15,7 @@ async def crawler(request, url: str) -> HTTPResponse:
     Endpoint to run crawler to a url parameter determined.
     Return JSON with result.
     """
+    print('Received URL:', url)
     if re.search(r'([\w-]+\.)+(\w+)', url) is None:
         return json({'message': 'This is not a valid url'})
 
@@ -24,10 +25,11 @@ async def crawler(request, url: str) -> HTTPResponse:
     if url.endswith('/'):
         url = url[:len(url)-1]
 
-    print('Running crawler')
+    print('Running crawler on', url)
     result = await simple_crawler(
         root_url=url, concurrency=30, timeout=5*60,
         save_urls=False, verbose=False)
+    print('Done')
     if result is not None:
         return json(result)
     return json({'message': 'Timeout reached!'})
