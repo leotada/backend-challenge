@@ -17,3 +17,10 @@ Find the shortest path to `9`. `1` is a walkable place. `0` is a hole, and you m
 Your initial position is `0x0`, the `9` position is `2x3`.
 
 Good luck!
+
+
+## How to run logic app
+
+```sh
+python3 logic.py
+```
