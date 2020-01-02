@@ -22,5 +22,11 @@ python3 app.py
 
 ## Make get request passing the url
 ```sh
-http://0.0.0.0:8000/crawler/https://translate.google.com.br
+http://0.0.0.0:8000/crawler/translate.google.com.br
+```
+
+## How to run logic app
+
+```sh
+python3 logic.py
 ```
